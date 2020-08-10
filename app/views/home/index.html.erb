@@ -1,0 +1,5 @@
+<% @questions.each do |question| %>
+	<%= link_to "question.name", question_url(question.id) %>
+	<%= button_to 'folow topic', "#{request.base_url}/question/#{question.id}/follow_topic", method: :post%>
+	<%= button_to 'folow user', follow_user_url(question.id), method: :post%><br>
+<% end %>
