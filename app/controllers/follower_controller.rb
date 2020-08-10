@@ -1,5 +1,4 @@
 class FollowerController < ApplicationController
-	before_action :add_all_questions
 	before_action :find_user, only: :follow_user
 	before_action :find_topic_id, only: :follow_topic
 
@@ -19,15 +18,15 @@ class FollowerController < ApplicationController
 	end
 
 	private
+	
 	def find_user
 		@user = Question.find(params[:id]).user
 	end
+
 	def find_topic_id
 		@topic_id = Question.find(params[:id]).topic_id
 	end
-	def add_all_questions
-		@questions = Question.all
-	end
+
 	def validate_following_user?
 		current_user.id == @user.id
 	end
