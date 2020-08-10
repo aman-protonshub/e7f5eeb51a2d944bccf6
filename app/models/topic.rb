@@ -1,4 +1,5 @@
 class Topic < ApplicationRecord
-	belongs_to :user
+	has_many :topic_followers
+    has_many :users, through: :topic_followers
 	has_many :questions, dependent: :destroy
 end

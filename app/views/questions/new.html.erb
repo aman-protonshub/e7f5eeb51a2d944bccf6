@@ -1,0 +1,8 @@
+<h3>Create Question</h3>
+<%= form_for @question do |f| %>
+	<%= f.label 'Select topic' %>
+	<%= f.select :topic_id, options_for_select(Topic.all.map{|t| [t.name, t.id] })%>
+	<%= f.label 'Question' %>
+	<%= f.text_field :name %><br>
+	<%= f.submit %>
+<% end %>
